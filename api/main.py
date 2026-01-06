@@ -1,31 +1,3 @@
-# from fastapi import FastAPI
-# from pydantic import BaseModel
-# from app.rag_chain import build_rag_chain, memory
-
-# app = FastAPI()
-# rag_chain = build_rag_chain()
-
-# class Query(BaseModel):
-#     question: str
-
-# @app.post("/ask")
-# def ask(query: Query):
-#     memory.add_user(query.question)
-
-#     result = rag_chain.invoke({
-#         "question": query.question,
-#         "chat_history": memory.get()
-#     })
-
-#     memory.add_ai(result["answer"])
-
-#     return {
-#         "answer": result["answer"],
-#         "context": result["context"]
-#     }
-
-
-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
