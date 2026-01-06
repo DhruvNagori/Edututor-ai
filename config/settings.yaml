@@ -1,0 +1,13 @@
+model:
+  name: google/flan-t5-base  # Using base instead of small for better quality
+  temperature: 0.7
+  max_tokens: 256  # Increased for more detailed responses
+
+embeddings:
+  model: sentence-transformers/all-MiniLM-L6-v2
+
+vectorstore:
+  path: embeddings/vector_store
+
+retrieval:
+  top_k: 4  # Reduced from 6 to get most relevant chunks

@@ -1,0 +1,19 @@
+# Python virtual environments
+venv/
+edututor-ai/
+
+# Secrets
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Vector store
+embeddings/vector_store/
+
+# Data files
+data/syllabus_pdfs/
+
+# OS files (macOS)
+.DS_Store
