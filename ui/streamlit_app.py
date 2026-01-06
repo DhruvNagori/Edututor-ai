@@ -1,58 +1,3 @@
-# import streamlit as st
-# import requests
-
-# API_URL = "http://localhost:8000/ask"
-
-# st.set_page_config(
-#     page_title="EduTutor AI",
-#     page_icon="🎓",
-#     layout="centered"
-# )
-
-# st.title("🎓 EduTutor AI")
-# st.caption("A syllabus-grounded, memory-aware AI tutor")
-
-# # Initialize chat history (frontend only)
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-# # Display previous messages
-# for msg in st.session_state.messages:
-#     with st.chat_message(msg["role"]):
-#         st.markdown(msg["content"])
-
-# # Chat input
-# prompt = st.chat_input("Ask a question from your syllabus...")
-
-# if prompt:
-#     # Show user message
-#     st.session_state.messages.append(
-#         {"role": "user", "content": prompt}
-#     )
-#     with st.chat_message("user"):
-#         st.markdown(prompt)
-
-#     # Call backend API
-#     try:
-#         response = requests.post(
-#             API_URL,
-#             json={"question": prompt},
-#             timeout=60
-#         )
-#         answer = response.json()["answer"]
-#     except Exception as e:
-#         answer = "⚠️ Unable to connect to the tutor service."
-
-#     # Show assistant response
-#     st.session_state.messages.append(
-#         {"role": "assistant", "content": answer}
-#     )
-#     with st.chat_message("assistant"):
-#         st.markdown(answer)
-
-
-
-
 import streamlit as st
 import requests
 import time
@@ -91,13 +36,13 @@ with st.sidebar:
     
     st.header("Features")
     st.markdown("""
-    - 📚 RAG-based retrieval
-    - 💬 Conversational memory
-    - 🔒 Safe for all ages
-    - 🚀 LangChain LCEL powered
+    -  RAG-based retrieval
+    -  Conversational memory
+    -  Safe for all ages
+    -  LangChain LCEL powered
     """)
     
-    if st.button("🔄 Reset Conversation", use_container_width=True):
+    if st.button(" Reset Conversation", use_container_width=True):
         try:
             requests.post(RESET_URL, timeout=5)
             st.session_state.messages = []
@@ -147,20 +92,20 @@ if prompt := st.chat_input("Ask a question from your syllabus..."):
                     
                     # Optional: Show context in expander
                     if data.get("context"):
-                        with st.expander("📚 View Retrieved Context"):
+                        with st.expander(" View Retrieved Context"):
                             st.text(data["context"])
                 else:
-                    answer = f"⚠️ Error: {response.status_code} - {response.text}"
+                    answer = f" Error: {response.status_code} - {response.text}"
                     st.error(answer)
                     
             except requests.exceptions.Timeout:
-                answer = "⚠️ Request timed out. The model might be loading. Please try again."
+                answer = " Request timed out. The model might be loading. Please try again."
                 st.error(answer)
             except requests.exceptions.ConnectionError:
-                answer = "⚠️ Unable to connect to the tutor service. Make sure the API is running."
+                answer = " Unable to connect to the tutor service. Make sure the API is running."
                 st.error(answer)
             except Exception as e:
-                answer = f"⚠️ An error occurred: {str(e)}"
+                answer = f" An error occurred: {str(e)}"
                 st.error(answer)
     
     # Add assistant response to history
@@ -170,7 +115,7 @@ if prompt := st.chat_input("Ask a question from your syllabus..."):
 
 # Show example questions if chat is empty
 if len(st.session_state.messages) == 0:
-    st.markdown("### 💡 Try asking:")
+    st.markdown("###  Try asking:")
     example_questions = [
         "What is PCA and how does it work?",
         "Explain the curse of dimensionality",
