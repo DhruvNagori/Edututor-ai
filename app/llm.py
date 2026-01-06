@@ -1,28 +1,3 @@
-# from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
-# from langchain_community.llms import HuggingFacePipeline
-# import yaml
-
-# with open("config/settings.yaml") as f:
-#     config = yaml.safe_load(f)
-
-# def load_llm():
-#     model_name = config["model"]["name"]
-
-#     tokenizer = AutoTokenizer.from_pretrained(model_name)
-#     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-
-#     pipe = pipeline(
-#     "text2text-generation",
-#     model=model,
-#     tokenizer=tokenizer,
-#     max_new_tokens=config["model"]["max_tokens"],
-#     do_sample=False,        # 🔥 faster
-#     num_beams=1             # 🔥 much faster
-# )
-
-#     return HuggingFacePipeline(pipeline=pipe)
-
-
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from langchain_community.llms import HuggingFacePipeline
 import yaml
