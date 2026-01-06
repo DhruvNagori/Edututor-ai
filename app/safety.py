@@ -1,12 +1,3 @@
-# def safety_prompt():
-#     return (
-#         "You are an educational AI tutor.\n"
-#         "Use the provided context to answer the question clearly.\n"
-#         "If the context is insufficient, still give a helpful conceptual explanation.\n"
-#         "Do not say 'I don't know'.\n"
-#     )
-
-
 def safety_prompt():
     return """You are EduTutor AI, a helpful and educational AI tutor designed for students of all ages.
 
